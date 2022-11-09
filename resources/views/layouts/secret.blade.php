@@ -82,6 +82,13 @@
                 </a>
             </li>
 
+            <li class="nav-item {{ Nav::isRoute('enroll') }}">
+                <a class="nav-link" href="{{ route('enroll') }}">
+                    {{-- <i class="fas fa-fw fa-user"></i> --}}
+                    <span>{{ __('Enroll (+)') }}</span>
+                </a>
+            </li>
+
             <!-- Nav Item - About -->
             {{-- <li class="nav-item {{ Nav::isRoute('about') }}">
             <a class="nav-link" href="{{ route('about') }}">

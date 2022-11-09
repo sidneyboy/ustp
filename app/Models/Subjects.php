@@ -15,4 +15,9 @@ class Subjects extends Model
         'department_id',
         'description',
     ];
+
+    public function department()
+    {
+        return $this->belongsTo('App\Models\Departments', 'department_id');
+    }
 }

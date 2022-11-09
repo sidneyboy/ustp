@@ -97,4 +97,23 @@ class Ustp_controller extends Controller
 
         return redirect('student')->with('success', 'Success');
     }
+
+    public function enroll()
+    {
+        $student = Students::get();
+        return view('enroll', [
+            'student' => $student,
+        ]);
+    }
+
+    public function enroll_proceed(Request $request)
+    {
+        $student = Students::find($request->input('student_id'));
+        $subjects = Subjects::get();
+        return view('enroll_proceed', [
+            'student' => $student,
+            'subjects' => $subjects,
+        ])->with('student_id', $request->input('student_id'))
+            ->with('number_of_subjects', $request->input('number_of_subjects'));
+    }
 }
