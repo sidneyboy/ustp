@@ -45,3 +45,4 @@ Route::post('/subject_process', 'Ustp_controller@subject_process')->name('subjec
 
 Route::get('/enroll', 'Ustp_controller@enroll')->name('enroll');
 Route::post('/enroll_proceed', 'Ustp_controller@enroll_proceed')->name('enroll_proceed');
+Route::post('/enroll_process', 'Ustp_controller@enroll_process')->name('enroll_process');

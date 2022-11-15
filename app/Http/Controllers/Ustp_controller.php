@@ -6,6 +6,8 @@ use App\Models\Departments;
 use App\Models\Students;
 use App\Models\Tors;
 use App\Models\Subjects;
+use App\Models\Code;
+use App\Models\Subject_enrolled;
 use Illuminate\Http\Request;
 
 class Ustp_controller extends Controller
@@ -115,5 +117,30 @@ class Ustp_controller extends Controller
             'subjects' => $subjects,
         ])->with('student_id', $request->input('student_id'))
             ->with('number_of_subjects', $request->input('number_of_subjects'));
+    }
+
+    public function enroll_process(Request $request)
+    {
+        $code = strtoupper(uniqid());
+        $new_code = new Code([
+            'code' => $code,
+        ]);
+
+        $new_code->save();
+
+
+        for ($i=0; $i < $request->input('number_of_subjects'); $i++) { 
+            $new_subject_enrolled = new Subject_enrolled([
+                'student_id' => $request->input('student_id'),
+                'subject_id' => $request->input('subject_id')[$i],
+                'grade' => $request->input('grades')[$i],
+                'code' => $new_code->id
+            ]);
+
+            $new_subject_enrolled->save();
+        }
+       
+        return redirect('enroll')->with('success', 'Success');
+      
     }
 }
