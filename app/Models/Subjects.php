@@ -14,6 +14,7 @@ class Subjects extends Model
         'units',
         'department_id',
         'description',
+        'course_code',
     ];
 
     public function department()

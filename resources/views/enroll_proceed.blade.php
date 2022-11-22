@@ -9,7 +9,7 @@
                 <select name="subject_id[]" class="form-control" required>
                     <option value="" default>Select</option>
                     @foreach ($subjects as $data)
-                        <option value="{{ $data->id }}">{{ $data->title . ' - ' . $data->department->department }}
+                        <option value="{{ $data->id ."-". $data->department_id }}">{{ $data->title . ' - ' . $data->department->department }}
                         </option>
                     @endforeach
                 </select>

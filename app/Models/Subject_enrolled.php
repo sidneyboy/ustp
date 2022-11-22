@@ -15,5 +15,26 @@ class Subject_enrolled extends Model
         'status',
         'grade',
         'code',
+        'department_id',
     ];
+
+    public function student()
+    {
+        return $this->belongsTo('App\Models\Students', 'student_id');
+    }
+
+    public function student_code()
+    {
+        return $this->belongsTo('App\Models\Code', 'code');
+    }
+
+    public function department()
+    {
+        return $this->belongsTo('App\Models\Departments', 'department_id');
+    }
+
+    public function subject()
+    {
+        return $this->belongsTo('App\Models\Subjects', 'subject_id');
+    }
 }

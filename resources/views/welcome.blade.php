@@ -35,28 +35,31 @@
                         Login
                     </a>
                     <div class="dropdown-menu" style="width:200px;padding:10px;">
-                        <div class="form-group">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend" style="border-color:#14144A">
-                                    <span class="input-group-text" id="basic-addon1" style="background:transparent"><i
-                                            class="bi bi-envelope"></i></span>
+                        <form method="POST" action="{{ route('ustp_login') }}" class="user">
+                            @csrf
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend" style="border-color:#14144A">
+                                        <span class="input-group-text" id="basic-addon1"
+                                            style="background:transparent"><i class="bi bi-envelope"></i></span>
+                                    </div>
+                                    <input type="email" style="border-color:#14144A" class="form-control"
+                                        placeholder="Username" name="username" required aria-label="Username" aria-describedby="basic-addon1">
                                 </div>
-                                <input type="text" style="border-color:#14144A" class="form-control"
-                                    placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+
+                                <div class="input-group mb-3" style="border-color:#14144A">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="background:transparent"
+                                            id="basic-addon1"><i class="bi bi-lock"></i></span>
+                                    </div>
+                                    <input type="password" required style="border-color:#14144A" class="form-control"
+                                        placeholder="Password" name="password" aria-label="Password" aria-describedby="basic-addon1">
+                                </div>
                             </div>
 
-                            <div class="input-group mb-3" style="border-color:#14144A">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" style="background:transparent" id="basic-addon1"><i
-                                            class="bi bi-lock"></i></span>
-                                </div>
-                                <input type="password" style="border-color:#14144A" class="form-control"
-                                    placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
-                            </div>
-                        </div>
-
-                        <button class="btn btn-sm btn-block"
-                            style="background:#14144A;border-radius:30px;color:white">Sign In</button>
+                            <button class="btn btn-sm btn-block"
+                                style="background:#14144A;border-radius:30px;color:white">Sign In</button>
+                        </form>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -88,7 +91,7 @@
             <input type="text" class="form-control"
                 style="border-radius: 30px;border:2px solid;border-color: #FBB313">
             <p style="color:#14144A;font-weight:bold;">Can't find? Please contact helpdesk</p>
-                
+
         </center>
     </div>
 

@@ -27,7 +27,7 @@
             <form action="{{ route('subject_process') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label>Department</label>
                         <select name="department_id" class="form-control" required>
                             <option value="" default>Select</option>
@@ -36,13 +36,17 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label>Title</label>
                         <input type="text" name="title" class="form-control" required>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label>Units</label>
                         <input type="number" name="units" class="form-control" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Course Code</label>
+                        <input type="text" name="course_code" class="form-control" required>
                     </div>
                     <div class="col-md-12">
                         <label>Description</label>

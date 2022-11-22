@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Subjects_enrolled;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -31,6 +32,12 @@ class HomeController extends Controller
             //...
         ];
 
-        return view('home', compact('widget'));
+        
+
+        //return view('enrolled_students', compact('widget'));
+
+        return redirect('enrolled_students');
     }
+
+    
 }

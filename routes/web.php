@@ -46,3 +46,16 @@ Route::post('/subject_process', 'Ustp_controller@subject_process')->name('subjec
 Route::get('/enroll', 'Ustp_controller@enroll')->name('enroll');
 Route::post('/enroll_proceed', 'Ustp_controller@enroll_proceed')->name('enroll_proceed');
 Route::post('/enroll_process', 'Ustp_controller@enroll_process')->name('enroll_process');
+
+Route::get('/chair_register', 'Ustp_controller@chair_register')->name('chair_register');
+
+
+Route::get('/enrolled_students', 'Ustp_controller@enrolled_students')->name('enrolled_students');
+
+Route::post('/ustp_login', 'Ustp_controller@ustp_login')->name('ustp_login');
+Route::get('/student_data/{student_id}/{code}', 'Ustp_controller@student_data')->name('student_data');
+
+Route::get('/approved/{code}/{id}', 'Ustp_controller@approved')->name('approved');
+
+Route::get('/reject/{code}/{id}', 'Ustp_controller@reject')->name('reject');
+

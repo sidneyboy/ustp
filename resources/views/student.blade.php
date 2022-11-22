@@ -39,6 +39,18 @@
                         <label>Last Name</label>
                         <input type="text" name="last_name" class="form-control" required>
                     </div>
+                    <div class="col-md-4">
+                        <label>Contact Number</label>
+                        <input type="number" name="contact_number" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Course</label>
+                        <input type="text" name="course" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Year Level</label>
+                        <input type="text" name="year_level" class="form-control" required>
+                    </div>
                     <div class="col-md-6">
                         <label>Email</label>
                         <input type="email" class="form-control" name="email" required>
