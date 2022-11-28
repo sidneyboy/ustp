@@ -236,4 +236,21 @@ class Ustp_controller extends Controller
 
         return redirect()->route('student_data', ['student_id' => $enrolled->student_id, 'code' => $code]);
     }
+
+    public function student_data_code(Request $request)
+    {
+        $code = Code::select('id')->where('code',$request->input('code'))
+                            ->first();
+
+        $enrolled = Subject_enrolled::where('code',$code->id)->get();
+        
+        $student = Students::find($enrolled[0]->student_id);
+        $tor = Tors::where('student_id', $enrolled[0]->student_id)->first();
+
+        return view('student_data_code',[
+            'enrolled' => $enrolled,
+            'student' => $student,
+            'tor' => $tor,
+        ]);
+    }
 }

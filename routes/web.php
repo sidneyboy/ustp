@@ -58,4 +58,4 @@ Route::get('/student_data/{student_id}/{code}', 'Ustp_controller@student_data')-
 Route::get('/approved/{code}/{id}', 'Ustp_controller@approved')->name('approved');
 
 Route::get('/reject/{code}/{id}', 'Ustp_controller@reject')->name('reject');
-
+Route::get('/student_data_code/', 'Ustp_controller@student_data_code')->name('student_data_code');

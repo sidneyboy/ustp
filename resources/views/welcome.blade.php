@@ -12,7 +12,25 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
 
+
     <title>USTP</title>
+    <style>
+        .has-search .form-control {
+            padding-left: 2.375rem;
+        }
+
+        .has-search .form-control-feedback {
+            position: absolute;
+            z-index: 2;
+            display: block;
+            width: 2.375rem;
+            height: 2.375rem;
+            line-height: 2.375rem;
+            text-align: center;
+            pointer-events: none;
+            color: #aaa;
+        }
+    </style>
 </head>
 
 <body>
@@ -44,7 +62,8 @@
                                             style="background:transparent"><i class="bi bi-envelope"></i></span>
                                     </div>
                                     <input type="email" style="border-color:#14144A" class="form-control"
-                                        placeholder="Username" name="username" required aria-label="Username" aria-describedby="basic-addon1">
+                                        placeholder="Username" name="username" required aria-label="Username"
+                                        aria-describedby="basic-addon1">
                                 </div>
 
                                 <div class="input-group mb-3" style="border-color:#14144A">
@@ -53,7 +72,8 @@
                                             id="basic-addon1"><i class="bi bi-lock"></i></span>
                                     </div>
                                     <input type="password" required style="border-color:#14144A" class="form-control"
-                                        placeholder="Password" name="password" aria-label="Password" aria-describedby="basic-addon1">
+                                        placeholder="Password" name="password" aria-label="Password"
+                                        aria-describedby="basic-addon1">
                                 </div>
                             </div>
 
@@ -88,9 +108,24 @@
         <center>
             <br />
             <img src="{{ asset('/img/ustp_front.png') }}" style="border:0px;" class="img img-thumbnail" alt="">
-            <input type="text" class="form-control"
-                style="border-radius: 30px;border:2px solid;border-color: #FBB313">
+            <form action="{{ route('student_data_code') }}" method="get">
+                @csrf
+                <div class="input-group">
+                    <input type="text" name="code" class="form-control"
+                        style="border-top-left-radius: 30px;border-bottom-left-radius: 30px;border:2px solid;border-color: #FBB313">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn"
+                            style="border-top-right-radius: 30px;border-bottom-right-radius: 30px;border-color:#FBB313"
+                            type="button">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
             <p style="color:#14144A;font-weight:bold;">Can't find? Please contact helpdesk</p>
+
+            <!-- Another variation with a button -->
+
 
         </center>
     </div>
