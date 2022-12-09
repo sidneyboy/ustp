@@ -37,4 +37,9 @@ class Subject_enrolled extends Model
     {
         return $this->belongsTo('App\Models\Subjects', 'subject_id');
     }
+
+    public function code_status()
+    {
+        return $this->belongsTo('App\Models\Code', 'code');
+    }
 }

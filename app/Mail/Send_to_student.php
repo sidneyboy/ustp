@@ -11,16 +11,18 @@ class Send_to_student extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject,$messages;
+    public $subject, $messages, $chair_name, $time;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($subject,$messages)
+    public function __construct($subject, $messages, $chair_name, $time)
     {
         $this->subject = $subject;
         $this->messages = $messages;
+        $this->chair_name = $chair_name;
+        $this->time = $time;
     }
 
     /**

@@ -67,11 +67,11 @@
                                                     <td class="align-middle">{{ $data->grade }}</td>
                                                     <td class="align-middle">{{ $data->department->department }}</td>
                                                     <td>
-                                                        <a href="{{ url('approved', ['code' => $data->code, 'id' => $data->id]) }}"
+                                                        <a href="{{ url('approved', ['code' => $data->code, 'id' => $data->id, 'student_id' => $data->student_id]) }}"
                                                             class="btn btn-primary btn-block"
                                                             style="border-radius: 30px;background:#14144A">Approved</a>
                                                         <br />
-                                                        <a href="{{ url('reject', ['code' => $data->code, 'id' => $data->id]) }}"
+                                                        <a href="{{ url('reject', ['code' => $data->code, 'id' => $data->id, 'student_id' => $data->student_id]) }}"
                                                             class="btn btn-primary btn-block"
                                                             style="border-radius: 30px;background:#CC1332">Reject</a>
                                                     </td>
@@ -84,7 +84,8 @@
                                                     <td class="align-middle">{{ $data->grade }}</td>
                                                     <td class="align-middle">{{ $data->department->department }}</td>
                                                     <td>
-                                                        <span style="border-radius: 30px;background:#14144A;color:white;padding:8px;">Approved</span>
+                                                        <span
+                                                            style="border-radius: 30px;background:#14144A;color:white;padding:8px;">Approved</span>
                                                     </td>
                                                 </tr>
                                             @elseif($data->status == 'Rejected')
@@ -95,7 +96,8 @@
                                                     <td class="align-middle">{{ $data->grade }}</td>
                                                     <td class="align-middle">{{ $data->department->department }}</td>
                                                     <td>
-                                                       <span style="border-radius: 30px;background:#CC1332;color:white;padding:8px;">Rejected</span>
+                                                        <span
+                                                            style="border-radius: 30px;background:#CC1332;color:white;padding:8px;">Rejected</span>
                                                     </td>
                                                 </tr>
                                             @endif
@@ -113,8 +115,31 @@
                         <h3 style="text-align: center;font-weight:bold;color:#14144A">TOR COPY</h3>
                     </div>
                     <div class="card-body">
-                        <img src="{{ asset('/storage/' . $tor->tor_image) }}" class="img img-thumbnail" style="border:0px;"
-                            alt="">
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
+                            <img src="{{ asset('/storage/' . $tor->tor_image) }}" class="img img-thumbnail"
+                                style="border:0px;" alt="">
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="{{ asset('/storage/' . $tor->tor_image) }}" class="img img-thumbnail"
+                                            style="border:0px;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

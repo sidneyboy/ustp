@@ -137,6 +137,7 @@ class Ustp_controller extends Controller
         $code = strtoupper(uniqid());
         $new_code = new Code([
             'code' => $code,
+            'status' => 'Pending',
         ]);
 
         $new_code->save();
@@ -211,43 +212,78 @@ class Ustp_controller extends Controller
         ]);
     }
 
-    public function approved($code, $id)
+    public function approved($code, $id, $student_id)
     {
+        date_default_timezone_set('Asia/Manila');
+        $date = date('Y-m-d H:i:s');
+        $time = date('F j, Y h:i:s a', strtotime($date));
+        $user = User::find(auth()->user()->id);
+        $chair_name = $user->name . " " . $user->last_name;
         $enrolled = Subject_enrolled::where('code', $code)->first();
         $subject = 'Course Approved';
-        $message = $enrolled->subject->title . ' has been approved please check your enrollment status at USTPtrack.com using this code ' . $enrolled->student_code->code;
-        Mail::to($enrolled->student->email)->send(new Send_to_student($subject, $message));
+        $message = $enrolled->subject->title . ' has been approved by chairman ' . $chair_name . ' please check your enrollment status at USTPtrack.com using this code ' . $enrolled->student_code->code;
+        Mail::to($enrolled->student->email)->send(new Send_to_student($subject, $message, $chair_name, $time));
 
         Subject_enrolled::where('id', $id)
             ->update(['status' => 'Approved']);
 
+        $check_enrolled = Subject_enrolled::where('code', $code)
+            ->where('status', null)
+            ->count();
+
+        if ($check_enrolled == 0) {
+            Code::where('id', $code)
+                ->update(['status' => 'Completed']);
+        } else {
+            Code::where('id', $code)
+                ->update(['status' => 'Pending']);
+        }
+
+
+
         return redirect()->route('student_data', ['student_id' => $enrolled->student_id, 'code' => $code]);
     }
 
-    public function reject($code, $id)
+    public function reject($code, $id, $student_id)
     {
+        date_default_timezone_set('Asia/Manila');
+        $date = date('Y-m-d H:i:s');
+        $time = date('F j, Y h:i:s a', strtotime($date));
+        $user = User::find(auth()->user()->id);
+        $chair_name = $user->name . " " . $user->last_name;
         $enrolled = Subject_enrolled::where('code', $code)->first();
         $subject = 'Course Rejected';
-        $message = $enrolled->subject->title . ' has been rejected please check your enrollment status at USTPtrack.com using this code ' . $enrolled->student_code->code;
-        Mail::to($enrolled->student->email)->send(new Send_to_student($subject, $message));
+        $message = $enrolled->subject->title . ' has been rejected by chairman ' . $chair_name . ' please check your enrollment status at USTPtrack.com using this code ' . $enrolled->student_code->code;
+        Mail::to($enrolled->student->email)->send(new Send_to_student($subject, $message, $chair_name, $time));
 
         Subject_enrolled::where('id', $id)
             ->update(['status' => 'Rejected']);
 
+        $check_enrolled = Subject_enrolled::where('code', $code)
+            ->where('status', null)
+            ->count();
+
+        if ($check_enrolled == 0) {
+            Code::where('id', $code)
+                ->update(['status' => 'Completed']);
+        } else {
+            Code::where('id', $code)
+                ->update(['status' => 'Pending']);
+        }
         return redirect()->route('student_data', ['student_id' => $enrolled->student_id, 'code' => $code]);
     }
 
     public function student_data_code(Request $request)
     {
-        $code = Code::select('id')->where('code',$request->input('code'))
-                            ->first();
+        $code = Code::select('id')->where('code', $request->input('code'))
+            ->first();
 
-        $enrolled = Subject_enrolled::where('code',$code->id)->get();
-        
+        $enrolled = Subject_enrolled::where('code', $code->id)->get();
+
         $student = Students::find($enrolled[0]->student_id);
         $tor = Tors::where('student_id', $enrolled[0]->student_id)->first();
 
-        return view('student_data_code',[
+        return view('student_data_code', [
             'enrolled' => $enrolled,
             'student' => $student,
             'tor' => $tor,
