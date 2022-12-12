@@ -11,5 +11,6 @@ class Code extends Model
 
     protected $fillable = [
         'code',
+        'status',
     ];
 }

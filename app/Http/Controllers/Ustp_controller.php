@@ -202,8 +202,11 @@ class Ustp_controller extends Controller
 
     public function student_data($student_id, $code)
     {
+        $user_data = User::find(auth()->user()->id);
         $student = Students::find($student_id);
-        $enrolled = Subject_enrolled::where('code', $code)->get();
+        $enrolled = Subject_enrolled::where('department_id', $user_data->department_id)
+                    ->where('code', $code)
+                    ->get();
         $tor = Tors::where('student_id', $student_id)->first();
         return view('student_data', [
             'student' => $student,
