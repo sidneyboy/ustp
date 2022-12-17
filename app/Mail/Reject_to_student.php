@@ -7,10 +7,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Send_to_student extends Mailable
+class Reject_to_student extends Mailable
 {
     use Queueable, SerializesModels;
-
     public $subject, $accredited_to, $chair_name, $code, $time,$status;
     /**
      * Create a new message instance.
@@ -34,6 +33,6 @@ class Send_to_student extends Mailable
      */
     public function build()
     {
-        return $this->markdown('send_to_student');
+        return $this->view('rejected_email');
     }
 }

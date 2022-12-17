@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-md-6">
                         <label>Transcript of Records Image</label>
-                        <input type="file" class="form-control" name="file" required>
+                        <input type="file" class="form-control" multiple name="file[]" required>
                     </div>
                     <div class="col-md-12">
                         <br />

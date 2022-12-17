@@ -55,7 +55,7 @@ Route::get('/enrolled_students', 'Ustp_controller@enrolled_students')->name('enr
 Route::post('/ustp_login', 'Ustp_controller@ustp_login')->name('ustp_login');
 Route::get('/student_data/{student_id}/{code}', 'Ustp_controller@student_data')->name('student_data');
 
-Route::get('/approved/{code}/{id}/{student_id}', 'Ustp_controller@approved')->name('approved');
+Route::post('/approved/', 'Ustp_controller@approved')->name('approved');
 
 Route::get('/reject/{code}/{id}/{student_id}', 'Ustp_controller@reject')->name('reject');
 Route::get('/student_data_code/', 'Ustp_controller@student_data_code')->name('student_data_code');

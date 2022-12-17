@@ -67,9 +67,74 @@
                                                     <td class="align-middle">{{ $data->grade }}</td>
                                                     <td class="align-middle">{{ $data->department->department }}</td>
                                                     <td>
-                                                        <a href="{{ url('approved', ['code' => $data->code, 'id' => $data->id, 'student_id' => $data->student_id]) }}"
+                                                        {{-- <a href="{{ url('approved', [
+                                                            'code' => $data->code,
+                                                            'id' => $data->id,
+                                                            'student_id' => $data->student_id,
+                                                            'subject_title' => $data->subject->title,
+                                                        ]) }}"
                                                             class="btn btn-primary btn-block"
                                                             style="border-radius: 30px;background:#14144A">Approved</a>
+                                                        <br />
+                                                        <a href="{{ url('reject', ['code' => $data->code, 'id' => $data->id, 'student_id' => $data->student_id]) }}"
+                                                            class="btn btn-primary btn-block"
+                                                            style="border-radius: 30px;background:#CC1332">Reject</a> --}}
+
+                                                        <!-- Button trigger modal -->
+                                                        <button type="button"
+                                                            style="border-radius: 30px;background:#14144A"
+                                                            class="btn btn-primary btn-block" data-toggle="modal"
+                                                            data-target="#exampleModalapproved{{ $data->id }}">
+                                                            Approved
+                                                        </button>
+
+                                                        <!-- Modal -->
+                                                        <div class="modal fade"
+                                                            id="exampleModalapproved{{ $data->id }}" tabindex="-1"
+                                                            role="dialog" aria-labelledby="exampleModalLabel"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">
+                                                                            {{ $data->subject->title }}</h5>
+                                                                        <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <form action="{{ route('approved') }}" method="post">
+                                                                        @csrf
+                                                                        <div class="modal-body">
+                                                                            <div class="form-group">
+                                                                                <label for="">Accredited To(Subject
+                                                                                    Code
+                                                                                    & Descriptive Title)</label>
+                                                                                <input type="text" class="form-control"
+                                                                                    required name="accredited_to">
+
+                                                                                <input type="hidden" name="code"
+                                                                                    value="{{ $data->code }}">
+                                                                                <input type="hidden" name="id"
+                                                                                    value="{{ $data->id }}">
+                                                                                <input type="hidden" name="student_id"
+                                                                                    value="{{ $data->student_id }}">
+
+                                                                            
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary"
+                                                                                data-dismiss="modal">Close</button>
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Save
+                                                                                changes</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
                                                         <br />
                                                         <a href="{{ url('reject', ['code' => $data->code, 'id' => $data->id, 'student_id' => $data->student_id]) }}"
                                                             class="btn btn-primary btn-block"

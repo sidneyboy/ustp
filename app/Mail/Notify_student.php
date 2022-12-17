@@ -7,26 +7,23 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Send_to_student extends Mailable
+class Notify_student extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $subject, $accredited_to, $chair_name, $code, $time,$status;
+    public $subject, $messages, $chair_name, $time,$code;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($subject, $accredited_to, $chair_name, $code, $time,$status)
+    public function __construct($subject, $messages, $chair_name, $time,$code)
     {
         $this->subject = $subject;
-        $this->accredited_to = $accredited_to;
+        $this->messages = $messages;
         $this->chair_name = $chair_name;
-        $this->code = $code;
         $this->time = $time;
-        $this->status = $status;
+        $this->code = $code;
     }
-
     /**
      * Build the message.
      *
@@ -34,6 +31,6 @@ class Send_to_student extends Mailable
      */
     public function build()
     {
-        return $this->markdown('send_to_student');
+        return $this->markdown('notify_student');
     }
 }

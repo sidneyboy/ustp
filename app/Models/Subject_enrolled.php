@@ -16,6 +16,8 @@ class Subject_enrolled extends Model
         'grade',
         'code',
         'department_id',
+        'accredited_to',
+        'chairman_name',
     ];
 
     public function student()
