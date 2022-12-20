@@ -51,15 +51,15 @@
         <hr class="sidebar-divider">
 
         <!-- Heading -->
-        <div class="sidebar-heading">
+        {{-- <div class="sidebar-heading">
             {{ __('Settings') }}
-        </div>
+        </div> --}}
 
         <!-- Nav Item - Profile -->
-        <li class="nav-item {{ Nav::isRoute('enrolled_students') }}">
-            <a class="nav-link" href="{{ route('enrolled_students') }}">
+        <li class="nav-item {{ Nav::isRoute('#') }}">
+            <a class="nav-link" href="{{ route('#') }}">
                 <i class="fas fa-fw fa-user"></i>
-                <span style="color: #FBB313">{{ __('Enrolled Students') }}</span>
+                <span style="color: #FBB313">{{ __('My Subjects') }}</span>
             </a>
         </li>
 
@@ -112,7 +112,7 @@
                 <ul class="navbar-nav ml-auto">
 
                     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                    <li class="nav-item dropdown no-arrow d-sm-none">
+                    {{-- <li class="nav-item dropdown no-arrow d-sm-none">
                         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-search fa-fw"></i>
                         </a>
@@ -129,12 +129,12 @@
                                 </div>
                             </form>
                         </div>
-                    </li>
+                    </li> --}}
 
                     <div class="topbar-divider d-none d-sm-block"></div>
 
                     <!-- Nav Item - User Information -->
-                    <li class="nav-item dropdown no-arrow">
+                    {{-- <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                             <figure class="img-profile rounded-circle avatar font-weight-bold" data-initial="{{ Auth::user()->name[0] }}"></figure>
@@ -151,7 +151,7 @@
                                 {{ __('Logout') }}
                             </a>
                         </div>
-                    </li>
+                    </li> --}}
 
                 </ul>
 
@@ -216,6 +216,5 @@
 <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

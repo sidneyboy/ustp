@@ -14,5 +14,9 @@ class Students extends Model
         'middle_name',
         'last_name',
         'email',
+        'contact_number',
+        'course',
+        'year_level',
+        'date_processed',
     ];
 }

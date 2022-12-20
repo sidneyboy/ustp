@@ -41,7 +41,7 @@
                     </div>
                     <div class="col-md-12">
                         <br />
-                        <button type="submit" class="btn btn-sm btn-primary float-right">enroll_Proceed</button>
+                        <button type="submit" class="btn btn-sm btn-primary float-right">Proceed</button>
                     </div>
                 </div>
             </form>
