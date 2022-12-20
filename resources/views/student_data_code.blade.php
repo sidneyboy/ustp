@@ -62,6 +62,7 @@
                                                     @foreach ($enrolled as $data)
                                                         @if ($data->status == null)
                                                             <tr>
+                                                                <td>{{ $data->id }}</td>
                                                                 <td class="align-middle">
                                                                     {{ $data->subject->course_code }}</td>
                                                                 <td class="align-middle">{{ $data->subject->title }}
