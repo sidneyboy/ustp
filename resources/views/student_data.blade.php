@@ -67,19 +67,7 @@
                                                     <td class="align-middle">{{ $data->grade }}</td>
                                                     <td class="align-middle">{{ $data->department->department }}</td>
                                                     <td>
-                                                        {{-- <a href="{{ url('approved', [
-                                                            'code' => $data->code,
-                                                            'id' => $data->id,
-                                                            'student_id' => $data->student_id,
-                                                            'subject_title' => $data->subject->title,
-                                                        ]) }}"
-                                                            class="btn btn-primary btn-block"
-                                                            style="border-radius: 30px;background:#14144A">Approved</a>
-                                                        <br />
-                                                        <a href="{{ url('reject', ['code' => $data->code, 'id' => $data->id, 'student_id' => $data->student_id]) }}"
-                                                            class="btn btn-primary btn-block"
-                                                            style="border-radius: 30px;background:#CC1332">Reject</a> --}}
-
+                                                
                                                         <!-- Button trigger modal -->
                                                         <button type="button"
                                                             style="border-radius: 30px;background:#14144A"

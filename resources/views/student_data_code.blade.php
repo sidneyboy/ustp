@@ -79,7 +79,6 @@
                                                             </tr>
                                                         @elseif($data->status == 'Approved')
                                                             <tr>
-                                                                <td>{{ $data->id }}</td>
                                                                 <td class="align-middle">
                                                                     {{ $data->subject->course_code }}</td>
                                                                 <td class="align-middle">{{ $data->subject->title }}
@@ -96,7 +95,6 @@
                                                             </tr>
                                                         @elseif($data->status == 'Rejected')
                                                             <tr>
-                                                                <td>{{ $data->id }}</td>
                                                                 <td class="align-middle">
                                                                     {{ $data->subject->course_code }}</td>
                                                                 <td class="align-middle">{{ $data->subject->title }}
