@@ -41,7 +41,7 @@
                                             <h6>Year Level: {{ $data->student->year_level }}</h6>
                                             <h6>Accreditation: <span
                                                     class="badge badge-warning">{{ $data->code_status->status }}</span></h6>
-                                            <h6>Date Enrolled: {{ date('F j, Y', strtotime($data->created_at)) }}</h6>
+                                            <h6>Date Enrolled: {{ date('F j, Y h:i a', strtotime($data->created_at)) }}</h6>
                                         </div>
                                         <div class="card-footer">
                                             <a href="{{ url('student_data', [
@@ -82,7 +82,7 @@
                                             <h6>Accreditation: <span
                                                     class="badge badge-success">{{ $data->code_status->status }}</span>
                                             </h6>
-                                            <h6>Date Enrolled: {{ date('F j, Y', strtotime($data->created_at)) }}</h6>
+                                            <h6>Date Enrolled: {{ date('F j, Y h:i a', strtotime($data->created_at)) }}</h6>
                                         </div>
                                         <div class="card-footer">
                                             <a href="{{ url('student_data', [
