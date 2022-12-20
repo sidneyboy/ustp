@@ -220,6 +220,7 @@ class Ustp_controller extends Controller
         $user_data = User::find(auth()->user()->id);
         $subjects = Subject_enrolled::where('department_id', $user_data->department_id)
             ->groupBy('code')
+            ->orderBy('id','desc')
             ->get();
 
         return view('enrolled_students', compact('widget'), [
