@@ -341,12 +341,12 @@ class Ustp_controller extends Controller
         $enrolled = Subject_enrolled::where('code', $code->id)->get();
 
         $student = Students::find($enrolled[0]->student_id);
-        $tor = Tors::where('student_id', $enrolled[0]->student_id)->first();
+        // $tor = Tors::where('student_id', $enrolled[0]->student_id)->get();
 
         return view('student_data_code', [
             'enrolled' => $enrolled,
             'student' => $student,
-            'tor' => $tor,
+            // 'tor' => $tor,
         ]);
     }
 }
