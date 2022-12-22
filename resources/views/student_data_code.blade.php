@@ -148,7 +148,7 @@
             </div>
         </div>
     </div>
-
+    <input type="text" id="student_name" style="text-transform: uppercase" value="{{ $student->first_name ."_". $student->last_name ."_TOR" }}">
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -171,11 +171,13 @@
                 type: 'application/msword'
             });
 
+            var student_name = document.getElementById('student_name');
+            
             // Specify link url
             var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
 
             // Specify file name
-            filename = filename ? filename + '.doc' : 'document.doc';
+            filename = filename ? filename + '.doc' : student_name;
 
             // Create download link element
             var downloadLink = document.createElement("a");
