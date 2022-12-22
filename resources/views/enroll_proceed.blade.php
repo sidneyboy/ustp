@@ -33,7 +33,7 @@
 <script>
     $("#enroll_process").on('submit', (function(e) {
         e.preventDefault();
-        //$('.loading').show();
+        $('.loading').show();
         $('#hide_if_trigger').hide();
         $.ajax({
             url: "enroll_process",

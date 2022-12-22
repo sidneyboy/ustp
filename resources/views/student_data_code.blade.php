@@ -45,6 +45,18 @@
                                     </div>
 
                                     <div class="col-md-12">
+                                        <table class="table table-borderless">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th></th>
+                                                    <th>Email</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+
+                                    <div class="col-md-12">
                                         <br /><br />
                                         <div class="table table-responsive">
                                             <table class="table table-bordered table-hover">

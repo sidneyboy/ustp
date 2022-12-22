@@ -18,7 +18,7 @@
             {{ session('status') }}
         </div>
     @endif
-
+    <div class="lds-hourglass"></div>
     <div class="card">
         <div class="card-header">Enroll Student</div>
         <div class="card-body">
@@ -55,7 +55,7 @@
     <script>
         $("#enroll_proceed").on('submit', (function(e) {
             e.preventDefault();
-            //$('.loading').show();
+            $('.loading').show();
             $.ajax({
                 url: "enroll_proceed",
                 type: "POST",
