@@ -15,7 +15,12 @@
 
 <body>
     <br />
+
     <div class="row">
+        <div class="col-md-12">
+            <a href="{{ url('/') }}" style="margin-left:10px;">Back To Home Page</a>
+        </div>
+        <br />
         <div class="col-md-12">
             <div class="container-fluid">
                 <div class="row">
@@ -26,31 +31,39 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        Name: <span style="color:#14144A;font-weight:bold;">{{ $student->first_name }}
-                                            {{ $student->middle_name }} {{ $student->last_name }}</span>
-                                        <br />
-                                        Email: <span
-                                            style="color:#14144A;font-weight:bold;">{{ $student->email }}</span><br />
-                                        Contact Number: <span
-                                            style="color:#14144A;font-weight:bold;">{{ $student->contact_number }}</span>
-                                    </div>
-                                    <div class="col-md-6">
-                                        Course: <span
-                                            style="color:#14144A;font-weight:bold;">{{ $student->course }}</span><br />
-                                        Year Level: <span
-                                            style="color:#14144A;font-weight:bold;">{{ $student->year_level }}</span><br />
-                                        Date Processed: <span
-                                            style="color:#14144A;font-weight:bold;">{{ date('F j, Y h:i a', strtotime($student->date_processed)) }}</span>
-                                    </div>
-
                                     <div class="col-md-12">
-                                        <table class="table table-borderless">
+                                        <table class="table table-striped">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th></th>
-                                                    <th>Email</th>
+                                                    <td style="text-align: right">Name:</td>
+                                                    <th style="text-align: left"><span
+                                                            style="color:#14144A;font-weight:bold;">{{ $student->first_name }}
+                                                            {{ $student->middle_name }} {{ $student->last_name }}</span>
+                                                    </th>
+                                                    <td style="text-align: right">Course:</td>
+                                                    <th style="text-align: left"> <span
+                                                            style="color:#14144A;font-weight:bold;">{{ $student->course }}</span>
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: right">Email:</td>
+                                                    <th style="text-align: left"><span
+                                                            style="color:#14144A;font-weight:bold;">{{ $student->email }}</span>
+                                                    </th>
+                                                    <td style="text-align: right">Year Level:</td>
+                                                    <th style="text-align: left"><span
+                                                            style="color:#14144A;font-weight:bold;">{{ $student->year_level }}</span>
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: right">Contact Number:</td>
+                                                    <th style="text-align: left"><span
+                                                            style="color:#14144A;font-weight:bold;">{{ $student->contact_number }}</span>
+                                                    </th>
+                                                    <td style="text-align: right">Date Processed:</td>
+                                                    <th style="text-align: left"><span
+                                                            style="color:#14144A;font-weight:bold;">{{ date('F j, Y h:i a', strtotime($student->date_processed)) }}</span>
+                                                    </th>
                                                 </tr>
                                             </thead>
                                         </table>
@@ -74,7 +87,7 @@
                                                     @foreach ($enrolled as $data)
                                                         @if ($data->status == null)
                                                             <tr>
-                                                                
+
                                                                 <td class="align-middle">
                                                                     {{ $data->subject->course_code }}</td>
                                                                 <td class="align-middle">{{ $data->subject->title }}
@@ -129,7 +142,9 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button onclick="Export2Word('exportContent');" class="btn btn-success btn-sm float-right">Export as .doc</button>
+                                <button class="btn btn-sm btn-success float-right"
+                                    onclick="Export2Word('exportContent', '{{ $student->first_name }}_{{ $student->last_name }}_TOR');">Export
+                                    as .doc</button>
                             </div>
                         </div>
                     </div>
@@ -139,8 +154,11 @@
                                 <h3 style="text-align: center;font-weight:bold;color:#14144A">TOR COPY</h3>
                             </div>
                             <div class="card-body">
-                                <img src="{{ asset('/storage/' . $tor->tor_image) }}" class="img img-thumbnail"
-                                    style="border:0px;" alt="">
+                                {{-- {{ $tor }} --}}
+                                @foreach ($tor as $image)
+                                    <img src="{{ asset('/storage/' . $image->tor_image) }}" class="img img-thumbnail"
+                                        style="border:0px;" alt="">
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -148,7 +166,7 @@
             </div>
         </div>
     </div>
-    <input type="text" id="student_name" style="text-transform: uppercase" value="{{ $student->first_name ."_". $student->last_name ."_TOR" }}">
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -171,13 +189,11 @@
                 type: 'application/msword'
             });
 
-            var student_name = document.getElementById('student_name');
-            
             // Specify link url
             var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
 
             // Specify file name
-            filename = filename ? filename + '.doc' : student_name;
+            filename = filename ? filename + '.doc' : 'document.doc';
 
             // Create download link element
             var downloadLink = document.createElement("a");

@@ -67,7 +67,7 @@
                                                     <td class="align-middle">{{ $data->grade }}</td>
                                                     <td class="align-middle">{{ $data->department->department }}</td>
                                                     <td>
-                                                
+
                                                         <!-- Button trigger modal -->
                                                         <button type="button"
                                                             style="border-radius: 30px;background:#14144A"
@@ -108,7 +108,7 @@
                                                                                 <input type="hidden" name="student_id"
                                                                                     value="{{ $data->student_id }}">
 
-                                                                            
+
                                                                             </div>
                                                                         </div>
                                                                         <div class="modal-footer">
@@ -171,7 +171,7 @@
 
                         <!-- Button trigger modal -->
                         <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
-                            <img src="{{ asset('/storage/' . $tor->tor_image) }}" class="img img-thumbnail"
+                            <img src="{{ asset('/storage/' . $tor[0]->tor_image) }}" class="img img-thumbnail"
                                 style="border:0px;" alt="">
                         </button>
 
@@ -181,14 +181,15 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <img src="{{ asset('/storage/' . $tor->tor_image) }}" class="img img-thumbnail"
-                                            style="border:0px;" alt="">
+                                        @foreach ($tor as $image)
+                                            <img src="{{ asset('/storage/' . $image->tor_image) }}"
+                                                class="img img-thumbnail" style="border:0px;" alt="">
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
