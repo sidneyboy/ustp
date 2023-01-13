@@ -24,119 +24,128 @@
         <div class="col-md-12">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-8" id="exportContent">
+                    <div class="col-md-8">
                         <div class="card">
                             <div class="card-header">
                                 <h3 style="text-align: center;font-weight:bold;color:#14144A">TRANSCRIPT OF RECORDS</h3>
                             </div>
                             <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <table class="table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <td style="text-align: right">Name:</td>
-                                                    <th style="text-align: left"><span
-                                                            style="color:#14144A;font-weight:bold;">{{ $student->first_name }}
-                                                            {{ $student->middle_name }} {{ $student->last_name }}</span>
-                                                    </th>
-                                                    <td style="text-align: right">Course:</td>
-                                                    <th style="text-align: left"> <span
-                                                            style="color:#14144A;font-weight:bold;">{{ $student->course }}</span>
-                                                    </th>
-                                                </tr>
-                                                <tr>
-                                                    <td style="text-align: right">Email:</td>
-                                                    <th style="text-align: left"><span
-                                                            style="color:#14144A;font-weight:bold;">{{ $student->email }}</span>
-                                                    </th>
-                                                    <td style="text-align: right">Year Level:</td>
-                                                    <th style="text-align: left"><span
-                                                            style="color:#14144A;font-weight:bold;">{{ $student->year_level }}</span>
-                                                    </th>
-                                                </tr>
-                                                <tr>
-                                                    <td style="text-align: right">Contact Number:</td>
-                                                    <th style="text-align: left"><span
-                                                            style="color:#14144A;font-weight:bold;">{{ $student->contact_number }}</span>
-                                                    </th>
-                                                    <td style="text-align: right">Date Processed:</td>
-                                                    <th style="text-align: left"><span
-                                                            style="color:#14144A;font-weight:bold;">{{ date('F j, Y h:i a', strtotime($student->date_processed)) }}</span>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                        </table>
-                                    </div>
-
-                                    <div class="col-md-12">
-                                        <br /><br />
-                                        <div class="table table-responsive">
-                                            <table class="table table-bordered table-hover">
+                                <div id="exportContent">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table class="table table-striped table-sm" style="font-size:15px;">
                                                 <thead>
                                                     <tr>
-                                                        <th>Subject Code</th>
-                                                        <th>Descriptive Title</th>
-                                                        <th>Unit</th>
-                                                        <th>Accredited To</th>
-                                                        <th>Chairman Name</th>
-                                                        <th>Remarks</th>
+                                                        <td style="text-align: right">Name:</td>
+                                                        <th style="text-align: left"><span
+                                                                style="color:#14144A;font-weight:bold;">{{ $student->first_name }}
+                                                                {{ $student->middle_name }}
+                                                                {{ $student->last_name }}</span>
+                                                        </th>
+                                                        <td style="text-align: right">Course:</td>
+                                                        <th style="text-align: left"> <span
+                                                                style="color:#14144A;font-weight:bold;">{{ $student->course }}</span>
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="text-align: right">Email:</td>
+                                                        <th style="text-align: left"><span
+                                                                style="color:#14144A;font-weight:bold;">{{ $student->email }}</span>
+                                                        </th>
+                                                        <td style="text-align: right">Year Level:</td>
+                                                        <th style="text-align: left"><span
+                                                                style="color:#14144A;font-weight:bold;">{{ $student->year_level }}</span>
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="text-align: right">Contact Number:</td>
+                                                        <th style="text-align: left"><span
+                                                                style="color:#14144A;font-weight:bold;">{{ $student->contact_number }}</span>
+                                                        </th>
+                                                        <td style="text-align: right">Date Processed:</td>
+                                                        <th style="text-align: left"><span
+                                                                style="color:#14144A;font-weight:bold;">{{ date('F j, Y h:i a', strtotime($student->date_processed)) }}</span>
+                                                        </th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    @foreach ($enrolled as $data)
-                                                        @if ($data->status == null)
-                                                            <tr>
-
-                                                                <td class="align-middle">
-                                                                    {{ $data->subject->course_code }}</td>
-                                                                <td class="align-middle">{{ $data->subject->title }}
-                                                                </td>
-                                                                <td class="align-middle">{{ $data->subject->units }}
-                                                                </td>
-                                                                <td>{{ $data->accredited_to }}</td>
-                                                                <td>{{ Str::ucfirst($data->chairman_name) }}</td>
-                                                                <td>
-
-                                                                    <span
-                                                                        style="border-radius: 30px;background:#FBB313;color:white;padding:8px;">Pending</span>
-                                                                </td>
-                                                            </tr>
-                                                        @elseif($data->status == 'Approved')
-                                                            <tr>
-                                                                <td class="align-middle">
-                                                                    {{ $data->subject->course_code }}</td>
-                                                                <td class="align-middle">{{ $data->subject->title }}
-                                                                </td>
-                                                                <td class="align-middle">{{ $data->subject->units }}
-                                                                </td>
-
-                                                                <td>{{ $data->accredited_to }}</td>
-                                                                <td>{{ Str::ucfirst($data->chairman_name) }}</td>
-                                                                <td>
-                                                                    <span
-                                                                        style="border-radius: 30px;background:#14144A;color:white;padding:8px;">Approved</span>
-                                                                </td>
-                                                            </tr>
-                                                        @elseif($data->status == 'Rejected')
-                                                            <tr>
-                                                                <td class="align-middle">
-                                                                    {{ $data->subject->course_code }}</td>
-                                                                <td class="align-middle">{{ $data->subject->title }}
-                                                                </td>
-                                                                <td class="align-middle">{{ $data->subject->units }}
-                                                                </td>
-                                                                <td>{{ $data->accredited_to }}</td>
-                                                                <td>{{ Str::ucfirst($data->chairman_name) }}</td>
-                                                                <td>
-                                                                    <span
-                                                                        style="border-radius: 30px;background:#CC1332;color:white;padding:8px;">Rejected</span>
-                                                                </td>
-                                                            </tr>
-                                                        @endif
-                                                    @endforeach
-                                                </tbody>
                                             </table>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <br /><br />
+                                            <div class="table table-responsive">
+                                                <table class="table table-bordered table-sm table-hover" style="font-size:15px;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Subject Code</th>
+                                                            <th>Descriptive Title</th>
+                                                            <th>Unit</th>
+                                                            <th>Accredited To</th>
+                                                            <th>Chairman Name</th>
+                                                            <th>Remarks</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($enrolled as $data)
+                                                            @if ($data->status == null)
+                                                                <tr>
+
+                                                                    <td class="align-middle">
+                                                                        {{ $data->subject->course_code }}</td>
+                                                                    <td class="align-middle">
+                                                                        {{ $data->subject->title }}
+                                                                    </td>
+                                                                    <td class="align-middle">
+                                                                        {{ $data->subject->units }}
+                                                                    </td>
+                                                                    <td>{{ $data->accredited_to }}</td>
+                                                                    <td>{{ Str::ucfirst($data->chairman_name) }}</td>
+                                                                    <td>
+
+                                                                        <span
+                                                                            style="border-radius: 30px;background:#FBB313;color:white;padding:8px;">Pending</span>
+                                                                    </td>
+                                                                </tr>
+                                                            @elseif($data->status == 'Approved')
+                                                                <tr>
+                                                                    <td class="align-middle">
+                                                                        {{ $data->subject->course_code }}</td>
+                                                                    <td class="align-middle">
+                                                                        {{ $data->subject->title }}
+                                                                    </td>
+                                                                    <td class="align-middle">
+                                                                        {{ $data->subject->units }}
+                                                                    </td>
+
+                                                                    <td>{{ $data->accredited_to }}</td>
+                                                                    <td>{{ Str::ucfirst($data->chairman_name) }}</td>
+                                                                    <td>
+                                                                        <span
+                                                                            style="border-radius: 30px;background:#14144A;color:white;padding:8px;">Approved</span>
+                                                                    </td>
+                                                                </tr>
+                                                            @elseif($data->status == 'Rejected')
+                                                                <tr>
+                                                                    <td class="align-middle">
+                                                                        {{ $data->subject->course_code }}</td>
+                                                                    <td class="align-middle">
+                                                                        {{ $data->subject->title }}
+                                                                    </td>
+                                                                    <td class="align-middle">
+                                                                        {{ $data->subject->units }}
+                                                                    </td>
+                                                                    <td>{{ $data->accredited_to }}</td>
+                                                                    <td>{{ Str::ucfirst($data->chairman_name) }}</td>
+                                                                    <td>
+                                                                        <span
+                                                                            style="border-radius: 30px;background:#CC1332;color:white;padding:8px;">Rejected</span>
+                                                                    </td>
+                                                                </tr>
+                                                            @endif
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -157,8 +166,7 @@
 
 
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn" data-toggle="modal"
-                                    data-target="#exampleModal">
+                                <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
                                     <img src="{{ asset('/storage/' . $tor[0]->tor_image) }}" class="img img-thumbnail"
                                         style="border:0px;" alt="">
                                 </button>
@@ -169,7 +177,7 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">TOR</h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
