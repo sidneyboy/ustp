@@ -16,6 +16,7 @@ use App\Mail\Notify_chair;
 use App\Mail\Complete_email;
 use App\Mail\Reject_to_student;
 use App\Mail\Uncomplete_email;
+use App\Mail\Send_to_chairman_mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -270,6 +271,8 @@ class Ustp_controller extends Controller
             ->where('status', null)
             ->count();
 
+
+
         if ($check_enrolled == 0) {
             $subject = 'TOR Subject Accreditation';
             $check_approval = Subject_enrolled::where('code', $request->input('code'))->where('status', 'Rejected')->count();
@@ -278,7 +281,13 @@ class Ustp_controller extends Controller
             } else {
                 Mail::to($enrolled->student->email)->send(new Uncomplete_email($subject, $time, $code));
             }
-            $subject = 'TOR Subject Accreditation';
+
+            $check_code_status = Code::where('status', 'Pending')->count();
+            $subject = 'Reminder - TOR ACCREDITATION';
+            $number = $check_code_status;
+            if ($check_code_status != 0) {
+                Mail::to($user->email)->send(new Send_to_chairman_mail($subject,$number));
+            }
             Code::where('id', $request->input('code'))
                 ->update(['status' => 'Completed']);
         } else {
@@ -322,7 +331,12 @@ class Ustp_controller extends Controller
             } else {
                 Mail::to($enrolled->student->email)->send(new Uncomplete_email($subject, $time, $codes));
             }
-            $subject = 'TOR Subject Accreditation';
+            $check_code_status = Code::where('status', 'Pending')->count();
+            $subject = 'Reminder - TOR ACCREDITATION';
+            $number = $check_code_status;
+            if ($check_code_status != 0) {
+                Mail::to($user->email)->send(new Send_to_chairman_mail($subject,$number));
+            }
             Code::where('id', $code)
                 ->update(['status' => 'Completed']);
         } else {
@@ -349,8 +363,8 @@ class Ustp_controller extends Controller
                 'student' => $student,
                 'tor' => $tor,
             ]);
-        }else{
-            return redirect('/')->with('error','Unknown Code!');
+        } else {
+            return redirect('/')->with('error', 'Unknown Code!');
         }
     }
 }
