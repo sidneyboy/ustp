@@ -106,8 +106,18 @@
 
     <div class="container">
         <center>
+
             <br />
             <img src="{{ asset('/img/ustp_front.png') }}" style="border:0px;" class="img img-thumbnail" alt="">
+
+            @if (session('error'))
+                <div class="alert alert-danger border-left-danger alert-dismissible fade show" role="alert">
+                    {{ session('error') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
             <form action="{{ route('student_data_code') }}" method="get">
                 @csrf
                 <div class="input-group">

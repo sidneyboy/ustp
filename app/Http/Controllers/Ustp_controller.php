@@ -220,7 +220,7 @@ class Ustp_controller extends Controller
         $user_data = User::find(auth()->user()->id);
         $subjects = Subject_enrolled::where('department_id', $user_data->department_id)
             ->groupBy('code')
-            ->orderBy('id','desc')
+            ->orderBy('id', 'desc')
             ->get();
 
         return view('enrolled_students', compact('widget'), [
@@ -289,7 +289,7 @@ class Ustp_controller extends Controller
         return redirect()->route('student_data', ['student_id' => $enrolled->student_id, 'code' => $request->input('code')]);
     }
 
-    public function reject($code,$id,$student_id)
+    public function reject($code, $id, $student_id)
     {
         date_default_timezone_set('Asia/Manila');
         $date = date('Y-m-d H:i:s');
@@ -338,15 +338,19 @@ class Ustp_controller extends Controller
         $code = Code::select('id')->where('code', $request->input('code'))
             ->first();
 
-        $enrolled = Subject_enrolled::where('code', $code->id)->get();
+        if ($code) {
+            $enrolled = Subject_enrolled::where('code', $code->id)->get();
 
-        $student = Students::find($enrolled[0]->student_id);
-        $tor = Tors::where('student_id', $enrolled[0]->student_id)->get();
+            $student = Students::find($enrolled[0]->student_id);
+            $tor = Tors::where('student_id', $enrolled[0]->student_id)->get();
 
-        return view('student_data_code', [
-            'enrolled' => $enrolled,
-            'student' => $student,
-            'tor' => $tor,
-        ]);
+            return view('student_data_code', [
+                'enrolled' => $enrolled,
+                'student' => $student,
+                'tor' => $tor,
+            ]);
+        }else{
+            return redirect('/')->with('error','Unknown Code!');
+        }
     }
 }

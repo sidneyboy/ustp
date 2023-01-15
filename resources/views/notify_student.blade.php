@@ -3,7 +3,7 @@
     <br /><br />
     Your TOR Accreditation has been forwarded to the USTPTrack site and has been received by the corresponding program chairman/s. You may check your TOR subject accreditation status on ustptrack.com using your tracking code:{{ $code }}.
     <br /><br />
-    You may also access the site by clicking the link (https:ustptrack.com).
+    You may also access the site by clicking the link (https://ustptrack.online).
     <br /><br />
     Thank you!
     <br /><br />
