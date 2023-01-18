@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
 
 
-    <title>USTP</title>
+    <title>USTPTrack</title>
     <style>
         .has-search .form-control {
             padding-left: 2.375rem;
