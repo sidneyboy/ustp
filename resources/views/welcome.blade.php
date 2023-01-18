@@ -12,7 +12,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
 
-
+    {{-- <link rel="icon" href="{{ asset('img/ustp_icon.svg') }}" type="image/icon type"> --}}
+    <link rel="icon" href="{{ asset('img/ustp_logo.ico') }}" type="image/x-icon">
     <title>USTPTrack</title>
     <style>
         .has-search .form-control {
@@ -35,7 +36,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background:#EEF0FC">
+    <nav class="navbar navbar-expand-lg navbar-light" >
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

@@ -33,119 +33,387 @@
                                 <div id="exportContent">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <table class="table table-striped table-sm" style="font-size:15px;">
-                                                <thead>
-                                                    <tr>
-                                                        <td style="text-align: right">Name:</td>
-                                                        <th style="text-align: left"><span
-                                                                style="color:#14144A;font-weight:bold;">{{ $student->first_name }}
-                                                                {{ $student->middle_name }}
-                                                                {{ $student->last_name }}</span>
-                                                        </th>
-                                                        <td style="text-align: right">Course:</td>
-                                                        <th style="text-align: left"> <span
-                                                                style="color:#14144A;font-weight:bold;">{{ $student->course }}</span>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="text-align: right">Email:</td>
-                                                        <th style="text-align: left"><span
-                                                                style="color:#14144A;font-weight:bold;">{{ $student->email }}</span>
-                                                        </th>
-                                                        <td style="text-align: right">Year Level:</td>
-                                                        <th style="text-align: left"><span
-                                                                style="color:#14144A;font-weight:bold;">{{ $student->year_level }}</span>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="text-align: right">Contact Number:</td>
-                                                        <th style="text-align: left"><span
-                                                                style="color:#14144A;font-weight:bold;">{{ $student->contact_number }}</span>
-                                                        </th>
-                                                        <td style="text-align: right">Date Processed:</td>
-                                                        <th style="text-align: left"><span
-                                                                style="color:#14144A;font-weight:bold;">{{ date('F j, Y h:i a', strtotime($student->date_processed)) }}</span>
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                            </table>
-                                        </div>
-
-                                        <div class="col-md-12">
-                                            <br /><br />
-                                            <div class="table table-responsive">
-                                                <table class="table table-bordered table-sm table-hover" style="font-size:15px;">
+                                            <p
+                                                style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                Office of the University Registrar</p>
+                                            <p
+                                                style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                University of Science and Technology of Southern Philippines</p>
+                                            <p
+                                                style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                Cagayan de Oro City, 9000 Philippines</p>
+                                            <p
+                                                style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                <br>&nbsp;<br><strong>APPLICATION FOR ACCREDITATION OF SUBJECTS</strong>
+                                            </p>
+                                            <p
+                                                style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                <strong>TAKEN IN OTHER COLLEGES/UNIVERSITIES</strong>
+                                            </p>
+                                            <p
+                                                style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                <strong>(College Level)</strong>
+                                            </p>
+                                            <p
+                                                style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;border:none;'>
+                                                <strong>&nbsp;</strong>
+                                            </p>
+                                            <p
+                                                style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;border:none;'>
+                                                <span style="color:black;">&nbsp;</span>
+                                            </p>
+                                            <center>
+                                                <table style="width: 100%;border-collapse:collapse;border:none;">
                                                     <thead>
                                                         <tr>
-                                                            <th>Subject Code</th>
-                                                            <th>Descriptive Title</th>
-                                                            <th>Unit</th>
-                                                            <th>Accredited To</th>
-                                                            <th>Chairman Name</th>
-                                                            <th>Remarks</th>
+                                                            <td
+                                                                style="width: 87.75pt;border: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                <p
+                                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:right;border:none;'>
+                                                                    Name:</p>
+                                                            </td>
+                                                            <td
+                                                                style="width: 146.25pt;border-top: 1pt solid black;border-right: 1pt solid black;border-bottom: 1pt solid black;border-image: initial;border-left: none;padding: 0in;vertical-align: top;">
+                                                                <p
+                                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;border:none;'>
+                                                                    <strong><span
+                                                                            style="color:#14144A;">{{ $student->first_name }}
+                                                                            {{ $student->last_name }}</span></strong>
+                                                                </p>
+                                                            </td>
+                                                            <td
+                                                                style="width: 1.25in;border-top: 1pt solid black;border-right: 1pt solid black;border-bottom: 1pt solid black;border-image: initial;border-left: none;padding: 0in;vertical-align: top;">
+                                                                <p
+                                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:right;border:none;'>
+                                                                    Course:</p>
+                                                            </td>
+                                                            <td
+                                                                style="width: 145.5pt;border-top: 1pt solid black;border-right: 1pt solid black;border-bottom: 1pt solid black;border-image: initial;border-left: none;padding: 0in;vertical-align: top;">
+                                                                <p
+                                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;border:none;'>
+                                                                    <strong><span
+                                                                            style="color:#14144A;">{{ $student->course }}</span></strong>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td
+                                                                style="width: 87.75pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0in;vertical-align: top;">
+                                                                <p
+                                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:right;border:none;'>
+                                                                    Email:</p>
+                                                            </td>
+                                                            <td
+                                                                style="width: 146.25pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                <p
+                                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;border:none;'>
+                                                                    <strong><span
+                                                                            style="color:#14144A;">{{ $student->email }}</span></strong>
+                                                                </p>
+                                                            </td>
+                                                            <td
+                                                                style="width: 1.25in;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                <p
+                                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:right;border:none;'>
+                                                                    Year Level:</p>
+                                                            </td>
+                                                            <td
+                                                                style="width: 145.5pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                <p
+                                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;border:none;'>
+                                                                    <strong><span
+                                                                            style="color:#14144A;">{{ $student->year_level }}</span></strong>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td
+                                                                style="width: 87.75pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0in;vertical-align: top;white-space:nowrap;">
+                                                                <p
+                                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:right;border:none;'>
+                                                                    Contact Number:</p>
+                                                            </td>
+                                                            <td
+                                                                style="width: 146.25pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                <p
+                                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;border:none;'>
+                                                                    <strong><span
+                                                                            style="color:#14144A;">{{ $student->contact_number }}</span></strong>
+                                                                </p>
+                                                            </td>
+                                                            <td
+                                                                style="width: 1.25in;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                <p
+                                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:right;border:none;'>
+                                                                    Date Processed:</p>
+                                                            </td>
+                                                            <td
+                                                                style="width: 145.5pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                <p
+                                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;border:none;'>
+                                                                    <strong><span
+                                                                            style="color:#14144A;">{{ date('F j, Y h:i a', strtotime($student->date_processed)) }}</span></strong>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </center>
+                                            <p
+                                                style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;border:none;'>
+                                                <strong><span style="color:#14144A;">&nbsp;</span></strong>
+                                            </p>
+                                            <p
+                                                style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;border:none;'>
+                                                <strong><span style="color:#14144A;">&nbsp;</span></strong>
+                                            </p>
+                                            <p
+                                                style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;border:none;'>
+                                                <strong><span style="color:#14144A;">&nbsp;</span></strong>
+                                            </p>
+                                            <center>
+                                                <table style="width: 100%;border-collapse:collapse;border:none;">
+                                                    <thead>
+                                                        <tr>
+                                                            <td
+                                                                style="width: 79.5pt;border: 1pt solid black;padding: 0in;height: 19.5pt;vertical-align: top;">
+                                                                <p
+                                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                                    <strong>Subject Code</strong>
+                                                                </p>
+                                                            </td>
+                                                            <td
+                                                                style="width: 107.25pt;border-top: 1pt solid black;border-right: 1pt solid black;border-bottom: 1pt solid black;border-image: initial;border-left: none;padding: 0in;height: 19.5pt;vertical-align: top;">
+                                                                <p
+                                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                                    <strong>Descriptive Title</strong>
+                                                                </p>
+                                                            </td>
+                                                            <td
+                                                                style="width: 34.5pt;border-top: 1pt solid black;border-right: 1pt solid black;border-bottom: 1pt solid black;border-image: initial;border-left: none;padding: 0in;height: 19.5pt;vertical-align: top;">
+                                                                <p
+                                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                                    <strong>Unit</strong>
+                                                                </p>
+                                                            </td>
+                                                            <td
+                                                                style="width: 81pt;border-top: 1pt solid black;border-right: 1pt solid black;border-bottom: 1pt solid black;border-image: initial;border-left: none;padding: 0in;height: 19.5pt;vertical-align: top;">
+                                                                <p
+                                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                                    <strong>Accredited To</strong>
+                                                                </p>
+                                                            </td>
+                                                            <td
+                                                                style="width: 89.25pt;border-top: 1pt solid black;border-right: 1pt solid black;border-bottom: 1pt solid black;border-image: initial;border-left: none;padding: 0in;height: 19.5pt;vertical-align: top;">
+                                                                <p
+                                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                                    <strong>Chairman Name</strong>
+                                                                </p>
+                                                            </td>
+                                                            <td
+                                                                style="width: 77.25pt;border-top: 1pt solid black;border-right: 1pt solid black;border-bottom: 1pt solid black;border-image: initial;border-left: none;padding: 0in;height: 19.5pt;vertical-align: top;">
+                                                                <p
+                                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                                    <strong>Remarks</strong>
+                                                                </p>
+                                                            </td>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         @foreach ($enrolled as $data)
                                                             @if ($data->status == null)
                                                                 <tr>
-
-                                                                    <td class="align-middle">
-                                                                        {{ $data->subject->course_code }}</td>
-                                                                    <td class="align-middle">
-                                                                        {{ $data->subject->title }}
+                                                                    <td
+                                                                        style="width: 79.5pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0in;vertical-align: top;">
+                                                                        <p
+                                                                            style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;border:none;'>
+                                                                            {{ $data->subject->course_code }}</p>
                                                                     </td>
-                                                                    <td class="align-middle">
-                                                                        {{ $data->subject->units }}
-                                                                    </td>
-                                                                    <td>{{ $data->accredited_to }}</td>
-                                                                    <td>{{ Str::ucfirst($data->chairman_name) }}</td>
-                                                                    <td>
+                                                                    <td
+                                                                        style="width: 107.25pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                        <p
+                                                                            style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;border:none;'>
+                                                                            {{ $data->subject->title }}</p>
 
-                                                                        <span
-                                                                            style="border-radius: 30px;background:#FBB313;color:white;padding:8px;">Pending</span>
+                                                                    </td>
+                                                                    <td
+                                                                        style="width: 34.5pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                        <p
+                                                                            style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                                            {{ $data->subject->units }}</p>
+
+                                                                    </td>
+                                                                    <td
+                                                                        style="width: 81pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                        <p
+                                                                            style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                                            {{ $data->accredited_to }}</p>
+                                                                    </td>
+                                                                    <td
+                                                                        style="width: 89.25pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                        <p
+                                                                            style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                                            {{ Str::ucfirst($data->chairman_name) }}
+                                                                        </p>
+                                                                    </td>
+                                                                    <td
+                                                                        style="width: 77.25pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                        <p
+                                                                            style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                                            <span
+                                                                                style="color:white;background:#14144A;">Pending</span>
+                                                                        </p>
                                                                     </td>
                                                                 </tr>
                                                             @elseif($data->status == 'Approved')
                                                                 <tr>
-                                                                    <td class="align-middle">
-                                                                        {{ $data->subject->course_code }}</td>
-                                                                    <td class="align-middle">
-                                                                        {{ $data->subject->title }}
+                                                                    <td
+                                                                        style="width: 79.5pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0in;vertical-align: top;">
+                                                                        <p
+                                                                            style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;border:none;'>
+                                                                            {{ $data->subject->course_code }}</p>
                                                                     </td>
-                                                                    <td class="align-middle">
-                                                                        {{ $data->subject->units }}
-                                                                    </td>
+                                                                    <td
+                                                                        style="width: 107.25pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                        <p
+                                                                            style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;border:none;'>
+                                                                            {{ $data->subject->title }}</p>
 
-                                                                    <td>{{ $data->accredited_to }}</td>
-                                                                    <td>{{ Str::ucfirst($data->chairman_name) }}</td>
-                                                                    <td>
-                                                                        <span
-                                                                            style="border-radius: 30px;background:#14144A;color:white;padding:8px;">Approved</span>
+                                                                    </td>
+                                                                    <td
+                                                                        style="width: 34.5pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                        <p
+                                                                            style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                                            {{ $data->subject->units }}</p>
+
+                                                                    </td>
+                                                                    <td
+                                                                        style="width: 81pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                        <p
+                                                                            style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                                            {{ $data->accredited_to }}</p>
+                                                                    </td>
+                                                                    <td
+                                                                        style="width: 89.25pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                        <p
+                                                                            style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                                            {{ Str::ucfirst($data->chairman_name) }}
+                                                                        </p>
+                                                                    </td>
+                                                                    <td
+                                                                        style="width: 77.25pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                        <p
+                                                                            style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                                            <span
+                                                                                style="color:white;background:#14144A;">Approved</span>
+                                                                        </p>
                                                                     </td>
                                                                 </tr>
                                                             @elseif($data->status == 'Rejected')
                                                                 <tr>
-                                                                    <td class="align-middle">
-                                                                        {{ $data->subject->course_code }}</td>
-                                                                    <td class="align-middle">
-                                                                        {{ $data->subject->title }}
+                                                                    <td
+                                                                        style="width: 79.5pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0in;vertical-align: top;">
+                                                                        <p
+                                                                            style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;border:none;'>
+                                                                            {{ $data->subject->course_code }}</p>
                                                                     </td>
-                                                                    <td class="align-middle">
-                                                                        {{ $data->subject->units }}
+                                                                    <td
+                                                                        style="width: 107.25pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                        <p
+                                                                            style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;border:none;'>
+                                                                            {{ $data->subject->title }}</p>
+
                                                                     </td>
-                                                                    <td>{{ $data->accredited_to }}</td>
-                                                                    <td>{{ Str::ucfirst($data->chairman_name) }}</td>
-                                                                    <td>
-                                                                        <span
-                                                                            style="border-radius: 30px;background:#CC1332;color:white;padding:8px;">Rejected</span>
+                                                                    <td
+                                                                        style="width: 34.5pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                        <p
+                                                                            style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                                            {{ $data->subject->units }}</p>
+
+                                                                    </td>
+                                                                    <td
+                                                                        style="width: 81pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                        <p
+                                                                            style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                                            {{ $data->accredited_to }}</p>
+                                                                    </td>
+                                                                    <td
+                                                                        style="width: 89.25pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                        <p
+                                                                            style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                                            {{ Str::ucfirst($data->chairman_name) }}
+                                                                        </p>
+                                                                    </td>
+                                                                    <td
+                                                                        style="width: 77.25pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0in;vertical-align: top;">
+                                                                        <p
+                                                                            style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:center;border:none;'>
+                                                                            <span
+                                                                                style="color:white;background:red;">Rejected</span>
+                                                                        </p>
                                                                     </td>
                                                                 </tr>
                                                             @endif
                                                         @endforeach
                                                     </tbody>
                                                 </table>
-                                            </div>
+                                            </center>
+                                            <br /><br />
+                                            <center>
+                                                <p
+                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;margin-left:3.5in;text-indent:.5in;line-height:115%;border:none;'>
+                                                    <strong><u>{{ $student->first_name }}
+                                                        {{ $student->last_name }}</u></strong>
+                                                </p>
+                                                <p
+                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;margin-left:3.5in;text-indent:.5in;line-height:115%;border:none;'>
+                                                    Student&rsquo;s Signature</p>
+                                                <p
+                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:justify;line-height:115%;border:none;'>
+                                                    <br>
+                                                </p>
+                                                <p
+                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:justify;line-height:115%;border:none;'>
+                                                    &nbsp;</p>
+                                                <p
+                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:justify;line-height:115%;border:none;'>
+                                                    Reccomending Approval:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                    &nbsp;
+                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                    &nbsp;
+                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Approved:</p>
+                                                <p
+                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:justify;text-indent:.5in;line-height:115%;border:none;'>
+                                                    <strong><u><span
+                                                                style="text-decoration:none;">&nbsp;</span></u></strong>
+                                                </p>
+                                                <p
+                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:justify;text-indent:.5in;line-height:115%;border:none;'>
+                                                    <strong><u><span
+                                                                style="text-decoration:none;">&nbsp;</span></u></strong>
+                                                </p>
+                                                <p
+                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:justify;text-indent:.5in;line-height:115%;border:none;'>
+                                                    <strong><u>
+                                                    @php
+                                                     $name = explode(' ', $enrolled[0]->chairman_name);
+                                                     echo $name[0] ." ". $name[1];
+                                                    @endphp    
+                                                    </u>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        &nbsp;
+                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        &nbsp; &nbsp; &nbsp; &nbsp;<u>Dr. Jocelyn B. Barbosa,
+                                                            PhD</u></strong>
+                                                </p>
+                                                <p
+                                                    style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:justify;text-indent:.5in;line-height:115%;'>
+                                                    Chairman&rsquo;s Signature &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                    &nbsp;
+                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Dean&rsquo;s
+                                                    Signature</p>
+                                            </center>
                                         </div>
                                     </div>
                                 </div>
@@ -166,9 +434,10 @@
 
 
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
-                                    <img src="{{ asset('/storage/' . $tor[0]->tor_image) }}" class="img img-thumbnail"
-                                        style="border:0px;" alt="">
+                                <button type="button" class="btn" data-toggle="modal"
+                                    data-target="#exampleModal">
+                                    <img src="{{ asset('/storage/' . $tor[0]->tor_image) }}"
+                                        class="img img-thumbnail" style="border:0px;" alt="">
                                 </button>
 
                                 <!-- Modal -->

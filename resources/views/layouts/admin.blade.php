@@ -23,8 +23,8 @@
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 
     <!-- Favicon -->
-    <link href="{{ asset('img/favicon.png') }}" rel="icon" type="image/png">
-    
+    <link href="{{ asset('img/ustp_logo.ico') }}" rel="icon" type="image/png">
+
 
 </head>
 
@@ -38,11 +38,12 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-                {{-- <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
-            </div> --}}
-                <div class="sidebar-brand-text mx-3"><span style="color:#FBB313">USTP</span> <span
-                        style="color:#CC1332">TRACK</span></div>
+                <div class="sidebar-brand-icon">
+                    {{-- <i class="fas fa-laugh-wink"></i> --}}
+                    <img src="{{ asset('img/ustp_admin.png') }}" alt="" style="width:70%;">
+                </div>
+                {{-- <div class="sidebar-brand-text mx-3" style="text-align: left"><span style="color:#FBB313">USTP</span> <span
+                        style="color:#CC1332">TRACK</span></div> --}}
             </a>
 
             <!-- Divider -->
@@ -189,7 +190,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Alejandro RH {{ now()->year }}</span>
+                        <span>Copyright &copy; 2023 USTPTrack ®</span>
                     </div>
                 </div>
             </footer>
