@@ -359,11 +359,11 @@
                                                 </table>
                                             </center>
                                             <br /><br />
-                                            <center>
+                                            {{-- <center>
                                                 <p
                                                     style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;margin-left:3.5in;text-indent:.5in;line-height:115%;border:none;'>
                                                     <strong><u>{{ $student->first_name }}
-                                                        {{ $student->last_name }}</u></strong>
+                                                            {{ $student->last_name }}</u></strong>
                                                 </p>
                                                 <p
                                                     style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;margin-left:3.5in;text-indent:.5in;line-height:115%;border:none;'>
@@ -395,11 +395,13 @@
                                                 <p
                                                     style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Arial",sans-serif;text-align:justify;text-indent:.5in;line-height:115%;border:none;'>
                                                     <strong><u>
-                                                    @php
-                                                     $name = explode(' ', $enrolled[0]->chairman_name);
-                                                     echo $name[0] ." ". $name[1];
-                                                    @endphp    
-                                                    </u>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                            @if ($enrolled[0]->chairman_name != null)
+                                                                @php
+                                                                    $name = explode(' ', $enrolled[0]->chairman_name);
+                                                                    echo $name[0] . ' ' . $name[1];
+                                                                @endphp
+                                                            @endif
+                                                        </u>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                         &nbsp;
                                                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -413,15 +415,19 @@
                                                     &nbsp;
                                                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Dean&rsquo;s
                                                     Signature</p>
-                                            </center>
+                                            </center> --}}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button class="btn btn-sm btn-success float-right"
+                                {{-- <button class="btn btn-sm btn-success float-right"
                                     onclick="Export2Word('exportContent', '{{ $student->first_name }}_{{ $student->last_name }}_TOR');">Export
-                                    as .doc</button>
+                                    as .doc</button> --}}
+
+                                <a target="_blank"
+                                    href="{{ url('student_data_code_export_as_document', ['code' => $code]) }}"
+                                    class="btn btn-sm btn-success float-right">Export as document</a>
                             </div>
                         </div>
                     </div>
@@ -434,37 +440,40 @@
 
 
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn" data-toggle="modal"
-                                    data-target="#exampleModal">
-                                    <img src="{{ asset('/storage/' . $tor[0]->tor_image) }}"
-                                        class="img img-thumbnail" style="border:0px;" alt="">
-                                </button>
+                                @if (count($tor) != 0)
+                                    <button type="button" class="btn" data-toggle="modal"
+                                        data-target="#exampleModal">
+                                        <img src="{{ asset('/storage/' . $tor[0]->tor_image) }}"
+                                            class="img img-thumbnail" style="border:0px;" alt="">
+                                    </button>
 
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">TOR</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                @foreach ($tor as $image)
-                                                    <img src="{{ asset('/storage/' . $image->tor_image) }}"
-                                                        class="img img-thumbnail" style="border:0px;" alt="">
-                                                @endforeach
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Close</button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">TOR</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    @foreach ($tor as $image)
+                                                        <img src="{{ asset('/storage/' . $image->tor_image) }}"
+                                                            class="img img-thumbnail" style="border:0px;"
+                                                            alt="">
+                                                    @endforeach
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Close</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
                             </div>
                         </div>
                     </div>

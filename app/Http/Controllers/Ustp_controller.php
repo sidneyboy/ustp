@@ -282,14 +282,16 @@ class Ustp_controller extends Controller
                 Mail::to($enrolled->student->email)->send(new Uncomplete_email($subject, $time, $code));
             }
 
+
+            Code::where('id', $request->input('code'))
+                ->update(['status' => 'Completed']);
+
             $check_code_status = Code::where('status', 'Pending')->count();
             $subject = 'Reminder - TOR ACCREDITATION';
             $number = $check_code_status;
             if ($check_code_status != 0) {
-                Mail::to($user->email)->send(new Send_to_chairman_mail($subject,$number));
+                Mail::to($user->email)->send(new Send_to_chairman_mail($subject, $number));
             }
-            Code::where('id', $request->input('code'))
-                ->update(['status' => 'Completed']);
         } else {
             Code::where('id', $request->input('code'))
                 ->update(['status' => 'Pending']);
@@ -331,14 +333,16 @@ class Ustp_controller extends Controller
             } else {
                 Mail::to($enrolled->student->email)->send(new Uncomplete_email($subject, $time, $codes));
             }
+
+            Code::where('id', $code)
+                ->update(['status' => 'Completed']);
+
             $check_code_status = Code::where('status', 'Pending')->count();
             $subject = 'Reminder - TOR ACCREDITATION';
             $number = $check_code_status;
             if ($check_code_status != 0) {
-                Mail::to($user->email)->send(new Send_to_chairman_mail($subject,$number));
+                Mail::to($user->email)->send(new Send_to_chairman_mail($subject, $number));
             }
-            Code::where('id', $code)
-                ->update(['status' => 'Completed']);
         } else {
             Code::where('id', $code)
                 ->update(['status' => 'Pending']);
@@ -359,6 +363,28 @@ class Ustp_controller extends Controller
             $tor = Tors::where('student_id', $enrolled[0]->student_id)->get();
 
             return view('student_data_code', [
+                'enrolled' => $enrolled,
+                'student' => $student,
+                'tor' => $tor,
+                'code' => $request->input('code'),
+            ]);
+        } else {
+            return redirect('/')->with('error', 'Unknown Code!');
+        }
+    }
+
+    public function student_data_code_export_as_document($code)
+    {
+        $code = Code::select('id')->where('code', $code)
+            ->first();
+
+        if ($code) {
+            $enrolled = Subject_enrolled::where('code', $code->id)->get();
+
+            $student = Students::find($enrolled[0]->student_id);
+            $tor = Tors::where('student_id', $enrolled[0]->student_id)->get();
+
+            return view('student_data_code_export_as_document', [
                 'enrolled' => $enrolled,
                 'student' => $student,
                 'tor' => $tor,

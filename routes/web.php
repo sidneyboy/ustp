@@ -59,3 +59,7 @@ Route::post('/approved/', 'Ustp_controller@approved')->name('approved');
 
 Route::get('/reject/{code}/{id}/{student_id}', 'Ustp_controller@reject')->name('reject');
 Route::get('/student_data_code/', 'Ustp_controller@student_data_code')->name('student_data_code');
+Route::get('/student_data_code_export_as_document/{code}', 'Ustp_controller@student_data_code_export_as_document')->name('student_data_code_export_as_document');
+
+
+
